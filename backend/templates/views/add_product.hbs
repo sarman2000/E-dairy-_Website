@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>add product</title>
+  <link rel="stylesheet" type="text/css" href="/css/admin_dash.css">
+  <link rel="stylesheet" href="/css/index.css">
+  <style>
+    #add-pro-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      background: pink;
+      width: 20%;
+      height: 100%;
+      border-radius: 20px;
+      padding: 10px;
+      margin-left: 400px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .items-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  </style>
+</head>
+
+<body>
+  {{>admin_navbar}}
+  <div id="add-pro-panel">
+    <h1 class="heading">Product Management</h1>
+    <form class="form" action="/add_product" method="post" enctype="multipart/form-data">
+      <div class="items-list">
+        <label for="category-name">Select Category:</label>
+        <select name="category_type" required>
+          {{#each category_name}}
+          <option>{{category_name}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+      <div class="items-list">
+        <label for="product-name">Product Name:</label>
+        <input type="text" id="product-name" name="product_name" required>
+      </div>
+
+      <div class="items-list">
+        <label for="product-description">Product Description:</label>
+        <textarea id="product-description" name="product_description" required></textarea>
+      </div>
+
+      <div class="items-list">
+        <label for="product-price">Price:</label>
+        <input type="number" id="product-price" name="product_price" required>
+      </div>
+
+      <div class="items-list">
+        <label for="product-quantity">Quantity:</label>
+        <input type="number" id="product-quantity" name="product_quantity" required>
+      </div>
+
+      <div class="items-list">
+        <label for="product-image">Product Image:</label>
+        <input type="file" id="product-image" name="product_image" required>
+      </div>
+
+      <div class="items-list">
+        <button type="submit" class="btn" value="add_product">Add Product</button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

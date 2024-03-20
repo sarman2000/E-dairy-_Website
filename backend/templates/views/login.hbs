@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>signup</title>
+   <link rel="stylesheet" href="/css/signup.css">
+</head>
+
+<body>
+   <div class="container">
+            <div id="login-card">
+               <h2 class="card-title">Login</h2>
+               <div class="card-body">
+                  <form id="login-form" action="/index" method="post">
+                     <div class="form-group">
+                        <input type="text" class="form-control" id="login-email" placeholder="Phone Number" name="phone_num">
+                     </div>
+                     <div class="form-group">
+                        <input type="password" class="form-control" id="login-password" placeholder="Password" name="password">
+                     </div>
+                     <div class="recovery">
+                        <a href="/forget_pass" id="recover-password">password forgotten?</a>
+                        <a href="/signup" id="signup">Create Account?</a>
+                     </div>
+                     <div class="submit-box">
+                        <button type="submit" class="btn">Login</button>
+                        {{!-- <a href="/index" id="login">Login</a> --}}
+                     </div>
+                  </form>
+               </div>
+            </div>
+   </div>
+   <script src="/js/web.js"></script>
+</body>
+
+</html>

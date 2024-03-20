@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Signup</title>
+   <link rel="stylesheet" href="/css/signup.css">
+</head>
+
+<body>
+   <div class="container">
+      <div id="sign-card">
+         <h2 class="card-title">Sign Up</h2>
+         <div class="card-body">
+            <form id="sign-form" onsubmit="formValidation()" action="/signup" method="post">
+               <div class="form-group">
+                  <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+               </div>
+               <div class="form-group">
+                  <label id="select" for="location-name">Select location:</label>
+                  <select name="location" id="location" class="form-control">
+                     <option selected="" value="Default">Select District</option>
+                     <option value="achham">Achham</option>
+                     <option value="arghakhanchi">Arghakhanchi</option>
+                     <option value="baglung">Baglung</option>
+                     <option value="baitadi">Baitadi</option>
+                     <option value="bajhang">Bajhang</option>
+                     <option value="bajura">Bajura</option>
+                     <option value="banke">Banke</option>
+                     <option value="bara">Bara</option>
+                     <option value="bardiya">Bardiya</option>
+                     <option value="bhaktapur">Bhaktapur</option>
+                     <option value="bhojpur">Bhojpur</option>
+                     <option value="chitwan">Chitwan</option>
+                     <option value="kapilvastu">Kapilvastu</option>
+                     <option value="kaski">Kaski</option>
+                     <option value="kathmandu">Kathmandu</option>
+                     <option value="lalitpur">Lalitpur</option>
+                     <option value="lamjung">Lamjung</option>
+                     <option value="mahottari">Mahottari</option>
+                     <option value="makwanpur">Makwanpur</option>
+                     <option value="nawalparasi">Nawalpur</option>
+                     <option value="rupandehi">Rupandehi</option>
+                     <option value="tanahu">Tanahu</option>
+                     <option value="taplejung">Taplejung</option>
+                     <option value="sindhupalchok">Sindhupalchok</option>
+                     <option value="siraha">Siraha</option>
+                     <option value="solukhumbu">Solukhumbu</option>
+                     <option value="sunsari">Sunsari</option>
+                     <option value="surkhet">Surkhet</option>
+                     <option value="syangja">Syangja</option>
+                     <option value="other">Other</option>
+                  </select>
+               </div>
+               <div class="form-group">
+                  <input type="text" class="form-control" id="phone" placeholder="Phone Number" name="phone_num">
+               </div>
+               <div class="form-group">
+                  <input type="email" class="form-control" id="sign-email" placeholder="Email" name="email">
+               </div>
+               <div class="form-group">
+                  <input type="password" class="form-control" id="sign-password" placeholder="Password" name="password">
+               </div>
+               <div class="form-group">
+                  <input type="password" class="form-control" id="confirm-password" placeholder="confirm-password"
+                     name="conf_password">
+               </div>
+               <div class="submit-box">
+                  <button class="btn">Create Account</button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</body>
+<script>
+   function formValidation() {
+      console.log(x);
+      const form = document.getElementById("sign-form");
+      const uname = document.getElementById("name");
+      const udis = document.getElementById("location");
+      const phoneinput = document.getElementById("phone");
+      const uemail = document.getElementById("sign-email");
+      const passwordInput = document.getElementById("sign-password");
+      const confirmPasswordInput = document.getElementById("confirm-password");
+      if (allLetter(uname) && disselect(udis) && phonenumber(phoneinput) && ValidateEmail(uemail)) {
+         return true;
+      } else {
+         return false;
+      }
+   }
+
+   function allLetter(uname) {
+      console.log(x);
+      var letters = /^[A-Za-z]+$/;
+      if (uname.value.match(letters)) {
+         return true;
+      }
+      else {
+         alert('Username must have alphabet characters only');
+         uname.focus();
+         return false;
+      }
+   }
+
+   function disselect(udis) {
+      console.log(x);
+      if (udis.value == "Default") {
+         alert('Select your district from the list');
+         udis.focus();
+         return false;
+      }
+      else {
+         return true;
+      }
+   }
+
+   function phonenumber(phoneinput) {
+      var phoneno = /^(97||98)\d{8}$/;
+      console.log(phoneinput.value);
+      if (phoneno.test(phoneinput.value)) {
+         return true;
+      }
+      else {
+         alert("Not a valid Phone Number");
+         return false;
+      }
+   }
+
+   function ValidateEmail(uemail) {
+      var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (uemail.value.match(mailformat)) {
+         return true;
+      }
+      else {
+         alert("You have entered an invalid email address!");
+         uemail.focus();
+         return false;
+      }
+   }
+
+</script>
+
+</html>

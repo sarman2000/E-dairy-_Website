@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Cart</title>
+  <link rel="stylesheet" href="/css/index.css">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tfoot td {
+      font-weight: bold;
+    }
+
+    tfoot td:first-child {
+      text-align: right;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .add-to-cart {
+      text-decoration: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  {{>nav_bar}}
+  <h2>Cart</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each products}}
+      <tr>
+        <td>{{product_id.product_name}}</td>
+        <td id="pro_price">{{product_id.product_price}}</td>
+        <td id="pro_quantity">{{product_quantity}}</td>
+        <td id="total_price">{{total}}</td>
+         <td>
+          <a class="add-to-cart" href="/pay?ord_id={{this._id}}">Buy Now</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3">Total:</td>
+        <td colspan="2">{{total_price}}</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy E-Commerce Website</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <style>
+        @media (max-width: 768px) {
+
+            /* Adjustments for smaller screens */
+            body {
+                font-size: 14px;
+                /* Adjust font size for readability */
+            }
+
+            #header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+
+            #logo {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            #logopic {
+                max-width: 100px;
+                /* Adjust logo size */
+            }
+
+            #search {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            #searchbox {
+                width: 100%;
+                /* Make search box full width */
+            }
+
+            #nav {
+                text-align: center;
+            }
+
+            #navbar {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 0;
+            }
+
+            #navbar li {
+                margin: 5px;
+            }
+
+            #feature {
+                text-align: center;
+                /* Center-align content */
+            }
+
+            .proheading {
+                {{!-- display: none; --}}
+                font-size: 20px;
+                /* Adjust font size for smaller screens */
+                text-align: center;
+                /* Center-align the heading */
+                margin-top: 20px;
+                /* Add some spacing */
+            }
+
+            #showcase img {
+                max-width: 100%;
+                /* Make images responsive */
+            }
+
+            .shopnow {
+                display: block;
+                /* Adjust button styling */
+                margin-top: 10px;
+            }
+
+            .product {
+                padding: 20px;
+                /* Add some spacing */
+            }
+
+            .show_pro {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .card {
+                flex: 0 0 calc(33.33% - 20px);
+                /* Arrange cards in a row */
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {{>nav_bar}}
+    <section id="feature">
+        <h4>Trending Products</h4>
+        <div id="showcase">
+            <!-- <button type="button" id="category"><img src="/images/category.png"></button> -->
+            <img src="/images/test_photo.jpg">
+            <a href="/shop" class="shopnow">Shop Now</a>
+        </div>
+    </section>
+
+    <section class="product">
+        <h4 class="proheading">Feature Products</h4>
+        <section id="shop_sec">
+            <div class="show_pro">
+                {{#each product}}
+                <div class="card">
+                    <img src="/images/{{product_image}}" class="card-img-top" alt="product1">
+                    <div class="card-body">
+                        <h6 class="card-title">Product Name:{{product_name}}</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item">Quantity:{{product_quantity}}</li>
+                            <li class="list-group-item">Price:Rs {{product_price}}</li>
+                        </ul>
+                        <form class="form" action="/view" method="post">
+                            <input type="hidden" name="pro_id" value="{{_id}}">
+                            <button type="submit" value="view_details" id="btn">view</button>
+                        </form>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </section>
+    </section>
+    <script src="/js/web.js"></script>
+</body>
+
+</html>

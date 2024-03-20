@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Spartan',sans-serif;
+  }
+  
+  #top-heading{
+    text-align: center;
+    width: 100%;
+    background-color: blueviolet;
+    text-align: center;
+    font-weight: 300;
+  }
+  
+  #admin-panel{
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+    height: fit-content;
+  }
+  
+  .ad_nav{
+    display: flex;
+    align-items:flex-start;
+    justify-content: right;
+    background: rgb(119, 119, 224);
+  }
+  
+  .ad_ul{
+    display: flex;
+    flex-direction: column;
+    justify-items: right;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  
+  .action{
+    text-decoration: none;
+    color: aliceblue;
+    padding-left: 20px;
+  }
+  
+  .ad_category{
+    list-style: none;
+    padding: 5px;
+  }
+  
+  .category_link{
+    text-decoration: none;
+    color: aliceblue;
+  }
+  
+.product-count{
+    background: lightgrey;
+    font-weight: 200;
+  }
+  #product-chart {
+    max-width: 500px;
+    margin: 20px auto;
+  }
+
+  .content {
+    background-color: #fff;
+    color: #333;
+    margin-left: 270px;
+    padding: 20px;
+  }
+
+  .order-request-form {
+    margin-top: 20px;
+  }
+
+  .order-request-form label,
+  .order-request-form input[type="text"],
+  .order-request-form input[type="submit"] {
+    display: block;
+    margin-bottom: 10px;
+  }

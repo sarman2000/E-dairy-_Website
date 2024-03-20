@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+body {
+  background: #fff;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(214, 214, 214);
+  width: 300px;
+  height: 100%;
+  margin-left: 500px;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgb(0, 0, 0, 0.5);
+}
+
+.card-title {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+#sign-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 30px;
+  width: 300px;
+  height: 100%;
+}
+
+.form-group{
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.form-control {
+  background-color: rgb(173, 173, 173);
+  padding: 15px 5px;
+  border-radius: 30px;
+  border: none;
+  transition: 0.3s ease;
+  width: 90%;
+}
+.form-control:hover{
+  box-shadow: 0 5px 15px rgb(0, 0, 0, 0.5);
+}
+.form-control:focus {
+  color: #000000;
+  background-color:  rgb(202, 201, 201);
+  outline-style: outset;
+  box-shadow: none;
+
+}
+
+#select{
+  color:rgb(227, 247, 245);
+}
+
+#check{
+  color:red;
+}
+
+.form-control::placeholder{
+  padding-left: 10px;
+  color:rgb(227, 247, 245);
+}
+.submit-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+#login{
+  color: blue;
+  font-weight: 300;
+  text-decoration: none;
+  text-align: center;
+  background-color: skyblue;
+  border-radius: 10px;
+  padding: 10px;
+}
+#login:hover{
+  background-color: rgb(118, 189, 218);
+  border-color: rgb(94, 164, 192);
+  box-shadow: 0 5px 15px rgb(0, 0, 0, 0.5);
+}
+.btn {
+  padding: 10px;
+  background: #a3f1ad;
+  border-radius: 30px;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #8ada95;
+  border-color: #72c47d;
+  box-shadow: 0 5px 15px rgb(0, 0, 0, 0.5);
+}
+#login-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items:center;
+  width: 300px;
+  height: 100%;
+}
+.recovery{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+#recover-password{
+  text-align: center;
+  font-size: 12px;
+  font-weight: 200;
+  padding: 10px;
+}
+.recovery button{
+  border: none;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 200;
+  padding: 10px;
+  background: transparent;
+  cursor: pointer;
+}
+.recovery button:hover,
+#recover-password:hover{
+  color: red;
+}

@@ -1,0 +1,95 @@
+<html>
+
+<head>
+    <style>
+        .total-row td {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        #ordertable {
+            border: 2px solid black;
+            padding: 8px;
+        }
+
+        #odertable {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #odertable th,
+        #odertable td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        #odertable th {
+            background-color: #f2f2f2;
+        }
+
+        #links {
+            display: flex;
+            justify-content: center;
+        }
+
+        .link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            position: relative;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="odertable">
+        <tr>
+            {{!-- <th>Date</th> --}}
+            <th>Customer Id</th>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+        </tr>
+        <tr>
+            {{!-- <td id="dateContainer" rowspan="2"></td> --}}
+            <td>{{userid}}</td>
+            <td>{{buying_product.product_name}}</td>
+            <td id="quan">{{quantity}}</td>
+            <td>Rs. {{buying_product.product_price}}</td>
+        </tr>
+        <tr class="total-row">
+            <td colspan="3">Total Amount:</td>
+            <td>Rs {{total_price}}</td>
+        </tr>
+    </table>
+    <div id="links">
+        <a class="link" href="#" onclick="payNow()">Cash on Delivery</a>
+        <a class="link" href="#" onclick="onlineNow()">Online Payment</a>
+    </div>
+</body>
+<script>
+    function payNow() {
+        var quantity = {{ quantity }};
+    var productId = "{{buying_product._id}}";
+    var pay_mode = "Cash on Delivery";
+    var url = "/cash_pay?pid=" + encodeURIComponent(productId) + "&user_pro_quantity=" + encodeURIComponent(quantity) + "&payment_mode=" + encodeURIComponent(pay_mode);
+
+    window.location.href = url;
+}
+
+function onlineNow() {
+        var quantity = {{ quantity }};
+    var productId = "{{buying_product._id}}";
+    var pay_mode = "Online Payment";
+    var url = "/oln_pay?pid=" + encodeURIComponent(productId) + "&user_pro_quantity=" + encodeURIComponent(quantity) + "&payment_mode=" + encodeURIComponent(pay_mode);
+
+    window.location.href = url;
+}
+</script>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Product</title>
+  <link rel="stylesheet" href="/css/index.css">
+  <style>
+    .product-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      max-width: 300px;
+      margin: 30px auto;
+    }
+
+    .product-title {
+      font-size: 24px;
+      margin-top: 10px;
+    }
+
+    .product-description {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .product-price {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .add-to-cart {
+      text-decoration: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .add-to-cart:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  {{>nav_bar}}
+  <div class="product-details">
+    <img src="images/{{product.product_image}}" alt="Product Image">
+    <h2 class="product-title">{{product.product_name}}</h2>
+    <p class="product-description">{{product.product_description}}</p>
+    <p class="product-price">Rs:{{product.product_price}}</p>
+    <form class="form" action="/cart" method="post">
+    <label for="product-quantity">Quantity:</label>
+    <input type="number" id="user_pro_quantity" name="user_pro_quantity" required>
+    <div class="btn_collection">
+      <a class="add-to-cart" href="#" onclick="buyNow()">Buy Now</a>
+      <input type="hidden" name="pro_id" value="{{product._id}}">
+      <button class="add-to-cart">Add to Cart</button>
+      </form>
+    </div>
+  </div>
+</body>
+<script>
+function buyNow() {
+  var quantity = document.getElementById("user_pro_quantity").value;
+  var productId = "{{product._id}}";
+
+  var url = "/pay?pid=" + encodeURIComponent(productId) + "&user_pro_quantity=" + encodeURIComponent(quantity);
+
+  window.location.href = url;
+}
+
+
+</script>
+</html>

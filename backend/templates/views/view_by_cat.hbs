@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{show_category}}</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <style>
+        #category_list {
+            display: none;
+            align-items: center;
+            list-style: none;
+        }
+
+        .cat_list {
+            background-color: rgb(142, 224, 224);
+            padding: 5px;
+            border-radius: 20px;
+            margin-left: 5px;
+            color: whitesmoke;
+        }
+
+        #cat_name {
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        #heading {
+            border: none;
+            background-color: rgb(176, 243, 243);
+            cursor: pointer;
+            margin: 7px;
+            font-size: medium;
+            padding: 5px;
+            border-radius: 20px;
+        }
+
+        #main_cat {
+            text-align: center;
+            color: rgb(210, 226, 168);
+            background-color: rgb(128, 204, 204);
+            padding: 5px;
+            border-radius: 40px;
+        }
+
+        .container {
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    {{>nav_bar}}
+    <section id="shop_sec">
+        <div id="category">
+            <button id="heading" onclick="showList()">Category</button>
+            <ul id="category_list">
+                {{#each category_name}}
+                <li class="cat_list"><a id="cat_name"
+                        href="/view_by_cat?cat_name={{category_name}}">{{category_name}}</a></li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="container">
+            <h4 id="main_cat">{{show_category}}</h4>
+        </div>
+        <h6>{{message}}</h6>
+        <div class="show_pro">
+            {{#each product}}
+            <div class="card">
+                <img src="/images/{{product_image}}" class="card-img-top" alt="product1">
+                <div class="card-body">
+                    <h6 class="card-title">Product Name:{{product_name}}</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item">Quantity:{{product_quantity}}</li>
+                        <li class="list-group-item">Price:Rs {{product_price}}</li>
+                    </ul>
+                    <form class="form" action="/view" method="post">
+                        <input type="hidden" name="pro_id" value="{{_id}}">
+                        <button type="submit" value="view_details" id="btn">view</button>
+                    </form>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </section>
+</body>
+<script>
+    function showList() {
+        var list = document.getElementById("category_list");
+        if (list.style.display === "none") {
+            list.style.display = "flex";
+        } else {
+            list.style.display = "none";
+        }
+    }
+</script>
+
+</html>

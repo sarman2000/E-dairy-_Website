@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>add category</title>
+  <link rel="stylesheet" type="text/css" href="/css/admin_dash.css">
+  <style>
+    #add-cat-panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgb(235, 192, 255);
+    width: 20%;
+    height: 100%;
+    border-radius: 20px;
+    padding: 10px;
+    margin-left: 400px;
+  }
+  </style>
+</head>
+<body>
+  {{>admin_navbar}}
+  <div id="add-cat-panel">
+      <form class="form" action="/add_category" method="post">
+        <div class="items-list">
+          <label for="category-name">Name of Category:</label>
+          <input type="text" id="category-name"  name="category_name">
+        </div>
+
+        <button type="submit" class="btn" value="add_category">Add Category</button>
+      </form>
+    </div>
+</body>
+</html>
